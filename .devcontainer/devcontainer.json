@@ -14,7 +14,8 @@
 	"extensions": [
 		"rebornix.Ruby",
 		"vscode-icons-team.vscode-icons",
-		"GitHub.copilot-nightly"
+		"GitHub.copilot-nightly",
+		"TabNine.tabnine-vscode"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
