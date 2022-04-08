@@ -12,7 +12,9 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"rebornix.Ruby"
+		"rebornix.Ruby",
+		"vscode-icons-team.vscode-icons",
+		"GitHub.copilot-nightly"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
