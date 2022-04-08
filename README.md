@@ -6,7 +6,8 @@ application up and running.
 ## Setup
 
 * Install dependencies via `bundle install`
-* Run migrations via `rake db:migrate`
+* Run the db migrations via `rails db:migrate`
+* Run the db seed via `rails db:seed`
 * Pre-compile assets via `rails assets:precompile` 
 
 
