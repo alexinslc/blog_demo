@@ -201,7 +201,7 @@ GEM
       actionpack (>= 5.2)
       railties (>= 5.2)
       strscan (>= 3.0.9)
-    rexml (3.3.7)
+    rexml (3.3.9)
     rubyzip (2.3.2)
     securerandom (0.4.0)
     selenium-webdriver (4.25.0)
