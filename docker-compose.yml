@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: blog_demo:latest
+    container_name: blog_demo_web
+    ports:
+      - "3000:3000"
+    environment:
+      - RAILS_ENV=production
+      - RAILS_LOG_TO_STDOUT=true
+      - RAILS_SERVE_STATIC_FILES=true
+      # Generate a secret: docker run --rm -it ruby:3.3.6-slim ruby -rsecurerandom -e 'puts SecureRandom.hex(64)'
+      - SECRET_KEY_BASE=${SECRET_KEY_BASE:-please-change-me-in-production}
+    volumes:
+      # Persist SQLite database
+      - db_data:/rails/db
+      # Persist uploaded files (if using ActiveStorage)
+      - storage_data:/rails/storage
+      # Persist logs
+      - log_data:/rails/log
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/up"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 40s
+    networks:
+      - blog_network
+
+volumes:
+  db_data:
+    driver: local
+  storage_data:
+    driver: local
+  log_data:
+    driver: local
+
+networks:
+  blog_network:
+    driver: bridge
