@@ -1,10 +1,7 @@
-require:
-  - rubocop-rails
-  - rubocop-performance
-
 AllCops:
   NewCops: enable
   TargetRubyVersion: 3.3
+  SuggestExtensions: false
   Exclude:
     - 'bin/**/*'
     - 'db/schema.rb'
