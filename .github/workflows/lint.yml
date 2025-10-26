@@ -1,0 +1,70 @@
+name: Lint and Security
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  rubocop:
+    name: RuboCop
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.3.6
+        bundler-cache: true
+
+    - name: Install RuboCop
+      run: |
+        gem install rubocop rubocop-rails rubocop-performance
+
+    - name: Run RuboCop
+      run: rubocop --parallel --format progress
+
+  brakeman:
+    name: Brakeman Security Scan
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.3.6
+        bundler-cache: true
+
+    - name: Install Brakeman
+      run: gem install brakeman
+
+    - name: Run Brakeman
+      run: brakeman --no-pager --no-exit-on-warn --format plain
+
+  bundler-audit:
+    name: Bundler Audit
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.3.6
+        bundler-cache: true
+
+    - name: Install bundler-audit
+      run: gem install bundler-audit
+
+    - name: Update vulnerability database
+      run: bundle audit update
+
+    - name: Run bundler-audit
+      run: bundle audit check
