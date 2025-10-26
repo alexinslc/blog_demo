@@ -1,9 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  body: MyText
+  title: First Test Post
+  body: This is the body of the first test post with enough content.
+  user: one
+  views: 0
 
 two:
-  title: MyString
-  body: MyText
+  title: Second Test Post
+  body: This is the body of the second test post with enough content.
+  user: two
+  views: 0
