@@ -1,0 +1,36 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.3
+  Exclude:
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'db/migrate/**/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+    - 'log/**/*'
+    - 'storage/**/*'
+
+# Relax some default cops for Rails conventions
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/environments/*'
+    - 'config/routes.rb'
+    - 'test/**/*'
+
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - 'config/**/*'
+
+Metrics/MethodLength:
+  Max: 15
+  Exclude:
+    - 'test/**/*'
