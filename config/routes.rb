@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  # Health check endpoint for Docker/k8s
+  get "up" => "rails/health#show", as: :rails_health_check
+  
   get 'users/profile'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
