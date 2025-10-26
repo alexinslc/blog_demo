@@ -1,33 +1,41 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.224.3/containers/ruby-rails-postgres
-// Update the VARIANT arg in docker-compose.yml to pick a Ruby version
 {
-	"name": "Ruby on Rails & Postgres",
+	"name": "Rails 8.1 Development",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
 	"workspaceFolder": "/workspace",
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": { },
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"ruby.intellisense": "rubyLocate",
+				"ruby.useBundler": true,
+				"ruby.format": "rubocop",
+				"[ruby]": {
+					"editor.defaultFormatter": "Shopify.ruby-lsp",
+					"editor.formatOnSave": true,
+					"editor.tabSize": 2,
+					"editor.insertSpaces": true
+				}
+			},
+			"extensions": [
+				"Shopify.ruby-lsp",
+				"KoichiSasada.vscode-rdbg",
+				"vscode-icons-team.vscode-icons",
+				"GitHub.copilot",
+				"ms-azuretools.vscode-docker"
+			]
+		}
+	},
 
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [
-		"rebornix.Ruby",
-		"vscode-icons-team.vscode-icons",
-		"GitHub.copilot-nightly",
-		"TabNine.tabnine-vscode"
-	],
+	"forwardPorts": [3000],
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// This can be used to network with other containers or the host.
-	// "forwardPorts": [3000, 5432],
+	"postCreateCommand": "bundle install && bin/rails db:prepare",
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "bundle install && rake db:setup",
-
-	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode",
+
 	"features": {
-		"github-cli": "latest"
+		"ghcr.io/devcontainers/features/github-cli:1": {
+			"version": "latest"
+		}
 	}
 }
