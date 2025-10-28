@@ -2,7 +2,6 @@
   <% if post.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
       <ul>
         <% post.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -25,3 +24,26 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<hr>
+
+<!-- 🌿 Journal Section -->
+<div 
+  data-controller="journal" 
+  data-plant-id="<%= post.id %>" 
+  class="mt-6"
+>
+  <h2 class="text-lg font-semibold mb-2">Plant Journal</h2>
+
+  <form data-journal-target="form" data-action="submit->journal#addEntry" class="space-y-2">
+    <label for="journal-note">Note:</label>
+    <textarea data-journal-target="note" id="journal-note" rows="2" class="w-full border rounded p-2"></textarea>
+
+    <label for="journal-photo">Photo (optional):</label>
+    <input type="file" data-journal-target="photo" id="journal-photo" accept="image/*" class="mb-2" />
+
+    <button type="submit" class="bg-green-600 text-white px-3 py-1 rounded">Add Entry</button>
+  </form>
+
+  <div data-journal-target="entries" class="mt-4"></div>
+</div>
