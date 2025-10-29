@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_10_26_010216) do
+ActiveRecord::Schema[8.1].define(version: 2025_10_29_072906) do
   create_table "posts", force: :cascade do |t|
     t.text "body"
     t.datetime "created_at", null: false
@@ -18,6 +18,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_10_26_010216) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.integer "views", default: 0
+    t.index ["created_at"], name: "index_posts_on_created_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
