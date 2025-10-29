@@ -106,6 +106,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    discard (1.4.0)
+      activerecord (>= 4.2, < 9.0)
     drb (2.2.3)
     erb (5.1.1)
     erubi (1.13.1)
@@ -273,6 +275,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  discard
   importmap-rails
   jbuilder
   propshaft
