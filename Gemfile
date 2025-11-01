@@ -29,6 +29,9 @@ gem 'stimulus-rails'
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'jbuilder'
 
+# Allows for soft deletion of records
+gem 'discard'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
