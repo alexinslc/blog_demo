@@ -16,6 +16,6 @@
     "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss ./app/assets/builds/application.css --no-source-map --load-path=node_modules"
   },
   "devDependencies": {
-    "immutable": "^4.3.8"
+    "immutable": "^5.1.5"
   }
 }
