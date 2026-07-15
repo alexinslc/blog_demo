@@ -106,8 +106,8 @@ GEM
       railties (>= 7.0)
       responders
       warden (~> 1.2.3)
-    discard (1.4.0)
-      activerecord (>= 4.2, < 9.0)
+    discard (2.0.0)
+      activerecord (>= 7.0, < 9.0)
     drb (2.2.3)
     erb (6.0.4)
     erubi (1.13.1)
