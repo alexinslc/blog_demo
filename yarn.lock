@@ -204,13 +204,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hotwired/turbo@npm:^8.0.21":
-  version: 8.0.23
-  resolution: "@hotwired/turbo@npm:8.0.23"
-  checksum: 600ba4ba7632e27c3ed9e80a2114715df94302d3d3b72b0a70efcd7c31477b377228a7fad629eeb2e4b2d778bf65571b176fc76a6bc5603dfc814810c0a815d6
-  languageName: node
-  linkType: hard
-
 "@isaacs/fs-minipass@npm:^4.0.0":
   version: 4.0.1
   resolution: "@isaacs/fs-minipass@npm:4.0.1"
@@ -256,7 +249,6 @@ __metadata:
   resolution: "app@workspace:."
   dependencies:
     "@hotwired/stimulus": ^3.0.1
-    "@hotwired/turbo": ^8.0.21
     "@hotwired/turbo-rails": ^7.1.1
     "@popperjs/core": ^2.11.5
     bootstrap: ^5.1.3
